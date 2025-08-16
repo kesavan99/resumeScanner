@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Resume Matcher
 
-## Getting Started
+A modern web application to analyze and compare resumes against job descriptions, providing both traditional and AI-powered insights. Built with React, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## Features
+- **Resume Upload**: Supports PDF, DOC, DOCX, and TXT files. Manual text input is also available.
+- **Job Description Input**: Paste or type job descriptions for comparison.
+- **Skill & Keyword Matching**: Extracts and matches technical and soft skills, highlights missing and matched skills.
+- **AI-Powered Analysis**: Integrates with Google Gemini AI for advanced, actionable feedback and career advice.
+- **Visual Reports**: Match percentage, categorized skills, and keyword analysis with a clean, responsive UI.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Quick Start
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+2. **Start the development server:**
+   ```bash
+   npm start
+   ```
+3. **(Optional) Enable Gemini AI:**
+   - Get a free API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+   - Create a `.env` file in the project root:
+     ```
+     REACT_APP_GEMINI_API_KEY=your_key_here
+     ```
+   - Restart the dev server.
+
+## Usage
+- Upload your resume or paste it manually.
+- Paste the job description.
+- Click **Analyze with AI** to get both traditional and AI-powered feedback.
+- Review matched/missing skills, keywords, and actionable recommendations.
+
+## Project Structure
+```
+resumeScanner/
+├── public/                # Static assets (HTML, icons, sample files)
+├── src/
+│   ├── components/        # UI components (FileUpload, SkillsAnalysis, etc.)
+│   ├── utils/             # Core logic (file extraction, skill matching, AI service)
+│   ├── types/             # TypeScript types/interfaces
+│   ├── App.tsx            # Main app logic and state
+│   └── ...
+├── tailwind.config.js     # Tailwind CSS config
+├── package.json           # Dependencies and scripts
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Main Logic
+- **File Extraction**: `src/utils/fileExtractor.ts` handles extracting text from PDF, DOC, and TXT files, with fallbacks for problematic files.
+- **Skill Matching**: `src/utils/resumeMatcher.ts` normalizes and extracts skills/keywords, calculates match percentage, and categorizes skills.
+- **AI Analysis**: `src/utils/geminiService.ts` sends resume and job description to Gemini AI for advanced analysis and recommendations.
+- **UI Flow**: `src/App.tsx` manages state, user input, and orchestrates analysis steps. Components display results and feedback.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
+- `npm start` – Start development server
+- `npm run build` – Build for production
+- `npm test` – Run tests
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Requirements
+- Node.js 16+
+- npm 8+
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+MIT
