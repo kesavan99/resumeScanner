@@ -36,7 +36,7 @@ A modern web application to analyze and compare resumes against job descriptions
 ## Project Structure
 ```
 resumeScanner/
-├── public/                # Static assets (HTML, icons, sample files)
+├── public/                # Static assets (HTML, icons)
 ├── src/
 │   ├── components/        # UI components (FileUpload, SkillsAnalysis, etc.)
 │   ├── utils/             # Core logic (file extraction, skill matching, AI service)

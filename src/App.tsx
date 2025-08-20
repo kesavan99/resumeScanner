@@ -6,7 +6,6 @@ import JobDescriptionInput from './components/JobDescriptionInput';
 import MatchPercentageCard from './components/MatchPercentageCard';
 import SkillsAnalysis from './components/SkillsAnalysis';
 import GeminiAnalysisDisplay from './components/GeminiAnalysisDisplay';
-import ApiKeyInfo from './components/ApiKeyInfo';
 import { ResumeData, MatchResult, GeminiAnalysis } from './types';
 import { extractTextFromFile } from './utils/fileExtractor';
 import { calculateMatch } from './utils/resumeMatcher';
@@ -116,9 +115,6 @@ function App() {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* API Key Info */}
-        <ApiKeyInfo />
-
         {/* Error Message */}
         {error && (
           <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
